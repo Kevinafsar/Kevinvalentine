@@ -1,0 +1,397 @@
+<html>
+<meta charset='UTF-8' />
+<meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport' />
+<meta content='IE=edge' http-equiv='X-UA-Compatible' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+
+<head>
+	<!-- 
+This code was made by irwanx
+Instagram: @irwan_x_yans
+-->
+</head>
+<style>
+body {
+	background-color: #101010;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 25px
+}
+
+a {
+	text-decoration: none;
+}
+
+body::before {
+	content: "\00A9  instagram.com/irwan_x_yans";
+	color: white;
+	opacity: .3;
+	font-size: 5px;
+	position: absolute;
+	bottom: 25px;
+	left: calc(50vw - 30px);
+}
+
+#bodyblur {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .3);
+	z-index: -1;
+	transition: all 1s ease;
+}
+
+@keyframes jj {
+	0% {
+		opacity: .4
+	}
+
+	50% {
+		opacity: .42
+	}
+
+	100% {
+		opacity: .4
+	}
+}
+
+#bodyblur img {
+	animation-name: jj;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes leaves {
+	0% {
+		transform: scale(1.0);
+	}
+
+	100% {
+		transform: scale(.8);
+	}
+}
+
+#lope,
+.lopdeg {
+	animation: leaves 1s ease-in-out infinite alternate;
+	-webkit-animation: leaves 1s ease-in-out infinite alternate;
+}
+
+.lovein:hover {
+	transform: scale(1.3);
+}
+
+@keyframes kont {
+	0% {
+		left: -1px;
+		top: -3px;
+	}
+
+	50% {
+		left: 1px;
+		top: 3px;
+	}
+
+	100% {
+		left: -1px;
+		top: -3px;
+	}
+}
+
+blockquote {
+	position: relative;
+	opacity: .8;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+blockquote {
+	width: 400px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	text-align: center;
+	padding: 30px 30px 30px 30px;
+	border: 1px dashed #fff;
+	border-radius: 18px;
+}
+
+blockquote p:first-child {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.lovein {
+	font-size: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+}
+
+.lovein svg {
+	width: 80px;
+	height: 80px;
+	fill: #fefefe
+}
+
+.content2 {
+	display: block;
+	text-align: center;
+	width: 100%;
+	height: 180px;
+	margin-top: 50px;
+}
+
+.content2>* {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 15px;
+	font-size: 17px;
+	color: white
+}
+
+.image img {
+	border-radius: 10%;
+	transition: all .5s ease;
+}
+
+.foto img:first-child {
+	z-index: 1
+}
+
+.content2 {
+	display: none;
+}
+
+#Content {
+	animation-name: none;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	position: relative;
+	opacity: 0;
+	margin-top: 50px;
+	width: 100%;
+	height: 180px;
+	transition: all .3s ease;
+}
+
+#Content>* {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 15px;
+	font-size: 17px;
+	color: white
+}
+
+.swal2-title {
+	margin-right: 20px;
+	margin-left: 20px;
+	font-size: 18px;
+	text-align: center;
+	padding: 15px 30px 0 30px;
+}
+
+.swal2-modal {
+	background: rgba(255, 255, 255, .99);
+	border: .7px solid #000;
+	border-radius: 22px;
+	/*top:-60px;*/
+}
+</style>
+
+<body>
+	<div id="bodyblur"><img src="https://i.postimg.cc/zfjPftww/IMG-20220214-140104-018.jpg" width="100%" height="100%" /></div>
+	<!-- Isi Konten -->
+	<div id='Content'>
+		<div class="image"><img src="https://i.postimg.cc/C1Gd38bQ/heart-happy.gif" width="130px" height="130px" /></div><!--<div id="sp1"></div>-->
+		<div>
+			<blockquote>
+				<p id="text"></p>
+				<p id="text2"></p>
+				<p id="text3"></p>
+			</blockquote>
+		</div>
+	</div>
+	<script>
+	function nonFo() {
+		document.getElementById('idfoto').style.display = "none";
+	}
+
+	function showFo() {
+		document.getElementById('idfoto').style.display = "block";
+	}
+
+	function nonDiv() {
+		document.getElementById('Content').style.display = "none";
+	}
+
+	function showDiv() {
+		ketik();
+		document.getElementById('Content').style.opacity = "1";
+		document.getElementById('Content').style.margin = "0";
+		document.getElementById('Content').style.animation = "kont 3s infinite";
+	}
+	var i = 0,
+		text;
+	text = "";
+	var u = 0,
+		text2;
+	text2 = "";
+	var o = 0,
+		text3;
+	text3 = "";
+
+	function ketik() {
+		if(i < text.length) {
+			document.getElementById("text").innerHTML += text.charAt(i);
+			i++;
+			setTimeout(ketik, 100);
+		}
+		if(i == text.length) {
+			document.getElementById("text").innerHTML = text + emotnama;
+			ketikk();
+		}
+	}
+
+	function ketikk() {
+		if(u < text2.length) {
+			document.getElementById("text2").innerHTML += text2.charAt(u);
+			u++;
+			setTimeout(ketikk, 200);
+		}
+		if(u == text2.length) {
+			ketikkk();
+		}
+	}
+
+	function ketikkk() {
+		if(o < text3.length) {
+			document.getElementById("text3").innerHTML += text3.charAt(o);
+			o++;
+			setTimeout(ketikkk, 300);
+		}
+		if(o == text3.length) {
+			document.getElementById("text3").innerHTML = text3 + emotnama2;
+		}
+	}
+	</script>
+	<script type="text/javascript">
+	//Audio Link MP3
+	function play() {
+		var audio = new
+		Audio('https://github.com/irwanx/valentine/blob/master/KandaJanganMarah.mp3?raw=true');
+		audio.play();
+	}
+	const swals = Swal.mixin({
+		allowOutsideClick: false,
+		cancelButtonColor: '#FF0040',
+	});
+	const swalsy = Swal.mixin({
+		confirmButtonText: 'Iya',
+		allowOutsideClick: false,
+	});
+	const swalst = Swal.mixin({
+		allowOutsideClick: false,
+		showConfirmButton: false,
+		timer: 1500,
+		timerProgressBar: true,
+	});
+	async function mulaitanya() {
+		var {
+			isConfirmed: tanyawal
+		} = await swals.fire({
+			title: `Mau isi nama dulu atau langsung aja?`,
+			imageUrl: 'https://i.ibb.co/PDmtXL5/IMG-20220830-075134.jpg',
+			imageWidth: 120,
+			imageHeight: 120,
+			confirmButtonText: 'Isi Nama',
+			cancelButtonText: 'Langsung Aja',
+			allowOutsideClick: false,
+			showCancelButton: true,
+		});
+		if(tanyawal) {
+			mulai();
+			play();
+		} else {
+			nama = 'My Love';
+			pilihwarna();
+			play();
+		}
+	}
+	async function mulai() {
+		var {
+			value: nama
+		} = await swals.fire({
+			title: 'Masukin nama kamu',
+			input: 'text',
+			imageUrl: 'https://i.postimg.cc/vDFQZzhM/yyy.gif',
+			imageWidth: 120,
+			imageHeight: 120,
+			allowOutsideClick: false,
+			showCancelButton: false,
+		});
+		if(nama && nama.length < 11) {
+			window.nama = nama;
+			pilihwarna();
+		} else {
+			await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');
+			mulai();
+		}
+	}
+	async function pilihwarna() {
+		text = "Dear, " + nama + ".    ";
+		emotnama = "&#10084;";
+		emotnama2 = "";
+		var {
+			isConfirmed: tanyadua
+		} = await swals.fire({
+			title: nama + ` mau pilih warna apa nih?`,
+			imageUrl: 'https://i.postimg.cc/wjjjjvm7/saltobears.gif',
+			imageWidth: 120,
+			imageHeight: 120,
+			confirmButtonText: 'Ungu',
+			cancelButtonText: 'Merah',
+			allowOutsideClick: false,
+			showCancelButton: true,
+		});
+		if(tanyadua) {
+			kata1();
+			kuis();
+		} else {
+			kata2();
+			kuis();
+		}
+	}
+
+	function kata1() {
+		text2 = "Love is not about what you have but what you feel and my feeling choose you to stand beside me forever. Happy Valentine, " + nama + "!       ";
+		text3 = "(Cinta bukanlah tentang apa yang kamu miliki tetapi tentang apa yang kamu rasa dan perasaanku memilihmu untuk di sampingku selamanya. Happy Valentine, " + nama + "!)       ";
+	}
+
+	function kata2() {
+		text2 = "Saat semua orang memiliki satu hari kasih sayang untuk ia rayakan, aku punya setiap hari untuk menyayangimu meski tak ku ucapkan.       ";
+		text3 = "Happy Valentine, " + nama + "!       ";
+		document.getElementById('text3').style = "font-weight:700";
+	}
+	async function kuis() {
+		await swalst.fire({
+			title: 'Hai, ' + nama + '!',
+			imageUrl: 'https://i.postimg.cc/02wF21b1/peach-goma.gif',
+			imageWidth: 120,
+			imageHeight: 120,
+		});
+		showDiv();
+	}
+	mulaitanya();
+	</script>
+</body>
+
+</html>
